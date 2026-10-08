@@ -1,6 +1,0 @@
-dataset:
-  data_root: data/SWaT
-  train_file: swat_train2.csv
-  test_file: swat2.csv
-  label_file: null
-  name: SWaT

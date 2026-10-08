@@ -1,6 +1,0 @@
-dataset:
-  data_root: data/MSL
-  train_file: MSL_train.npy
-  test_file: MSL_test.npy
-  label_file: MSL_test_label.npy
-  name: MSL

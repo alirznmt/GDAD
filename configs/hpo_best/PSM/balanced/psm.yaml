@@ -1,6 +1,0 @@
-dataset:
-  data_root: data/PSM
-  train_file: train.csv
-  test_file: test.csv
-  label_file: test_label.csv
-  name: PSM
