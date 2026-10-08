@@ -45,7 +45,6 @@ The combined dependency network improved AUPRC over the identity, persistent-onl
 ```text
 .
 ├── configs/                 # Base and dataset-specific configurations
-│              
 ├── models/                  # Graph learner, denoiser, diffusion, and GDAD model
 ├── tools/                   # Diagnostics, scaling, SNR, and reviewer analyses
 ├── utils/                   # Data, metrics, scoring, logging, and reproducibility
