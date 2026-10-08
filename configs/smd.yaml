@@ -1,0 +1,15 @@
+# SMD (Server Machine Dataset) -- 38 sensors. NPY format.
+# NOTE: datasets.py expects a single train/test npy. If you use the per-machine
+# SMD files, concatenate them (or point to one machine) before running.
+dataset:
+  data_root: data/SMD
+  train_file: SMD_train.npy
+  test_file: SMD_test.npy
+  label_file: SMD_test_label.npy
+
+data:
+  window_size: 100
+  stride: 50
+
+eval:
+  anomaly_ratio: 0.05

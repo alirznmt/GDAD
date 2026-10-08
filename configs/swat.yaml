@@ -1,0 +1,18 @@
+# SWaT (Secure Water Treatment) -- 51 sensors. CSV format.
+# datasets.py uses the last CSV column as the per-row label on the test file
+# (label_file is null), and drops the last column from the feature matrix.
+dataset:
+  data_root: data/SWaT
+  train_file: swat_train2.csv
+  test_file: swat2.csv
+  label_file: null
+
+data:
+  window_size: 100
+  stride: 50
+
+train:
+  batch_size: 128
+
+eval:
+  anomaly_ratio: 0.12

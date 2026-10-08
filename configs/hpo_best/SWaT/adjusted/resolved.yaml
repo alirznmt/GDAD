@@ -1,0 +1,74 @@
+seed: 42
+data:
+  window_size: 100
+  stride: 50
+  train_ratio: 0.85
+model:
+  hidden_dim: 64
+  num_layers: 5
+  kernel_size: 5
+  time_dim: 128
+  node_dim: 16
+  top_k: 5
+  dynamic_graph: true
+  groups: 8
+diffusion:
+  timesteps: 100
+  schedule: cosine
+  loss_type: l2
+  scheduler_type: original
+  target_snr_db: -10
+  snr_mt: 10.0
+  snr_curve: linear
+train:
+  epochs: 40
+  batch_size: 64
+  lr: 0.0003
+  weight_decay: 0.0001
+  grad_clip: 1.0
+  warmup_frac: 0.1
+  patience: 8
+  amp: true
+  use_cuda: true
+  deterministic: true
+  num_workers: 0
+  ckpt_dir: checkpoints
+eval:
+  eval_steps:
+  - 2
+  - 5
+  - 10
+  - 20
+  num_samples: 1
+  recon_weight: 1.0
+  eps_weight: 0.025
+  channel_norm: true
+  channel_agg: max
+  ema_alpha: 0.03
+  anomaly_ratio: 0.12
+  pot_q: 0.001
+  pot_level: 0.98
+  result_dir: results
+  seed: 2026
+sic:
+  enabled: false
+  gaussian_kernel_size: 31
+  gaussian_sigma: 5.0
+  granularity: window
+  min_reverse_step_ratio: 0.05
+  max_reverse_step_ratio: 0.4
+  ddim_steps: 8
+  deterministic_noise: true
+  num_samples: 1
+  clip_denoised: false
+score:
+  denoise_weight: 1.0
+  sic_weight: 0.0
+  graph_weight: 0.0
+  normalization: robust
+dataset:
+  data_root: data/SWaT
+  train_file: swat_train2.csv
+  test_file: swat2.csv
+  label_file: null
+  name: SWaT

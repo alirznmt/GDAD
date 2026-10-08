@@ -1,0 +1,18 @@
+# PSM (Pooled Server Metrics, eBay) -- 25 sensors. CSV format.
+# datasets.py drops the first (timestamp) column for PSM and reads the test
+# label file's column 1 as the labels.
+dataset:
+  data_root: data/PSM
+  train_file: train.csv
+  test_file: test.csv
+  label_file: test_label.csv
+
+data:
+  window_size: 100
+  stride: 50
+
+train:
+  batch_size: 128
+
+eval:
+  anomaly_ratio: 0.28

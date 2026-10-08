@@ -1,0 +1,13 @@
+# MSL (NASA) -- 55 sensors. NPY format.
+dataset:
+  data_root: data/MSL
+  train_file: MSL_train.npy
+  test_file: MSL_test.npy
+  label_file: MSL_test_label.npy
+
+data:
+  window_size: 100
+  stride: 50
+
+eval:
+  anomaly_ratio: 0.10

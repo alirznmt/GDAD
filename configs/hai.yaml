@@ -1,0 +1,40 @@
+# HAI 22.04 (HIL-based Augmented ICS) -- 86 process tags. Train splits
+# 1-6 and test splits 1-4 are concatenated in chronological filename order.
+# Attack is not a feature; labels live in the separate test_label*.npy files.
+dataset:
+  data_root: data/HAI
+  train_file:
+    - train1.npy
+    - train2.npy
+    - train3.npy
+    - train4.npy
+    - train5.npy
+    - train6.npy
+  test_file:
+    - test1.npy
+    - test2.npy
+    - test3.npy
+    - test4.npy
+  label_file:
+    - test_label1.npy
+    - test_label2.npy
+    - test_label3.npy
+    - test_label4.npy
+  expected_num_nodes: 86
+  # Optional structural ground truth (uncomment when these files are present
+  # in data/HAI and ordered exactly like the NPY columns):
+  # sensor_names_file: sensor_names.json   # JSON list, length 86
+  # sensor_groups_file: sensor_groups.json # JSON {sensor_name: process_group}
+  # topology_file: topology.npy            # 86x86 adjacency, row=receiver
+
+data:
+  window_size: 100
+  stride: 50
+
+train:
+  # The dense CxC instance graph is substantially larger than on SWaT.
+  # Override upward on a high-memory GPU only after the smoke run succeeds.
+  batch_size: 64
+
+eval:
+  anomaly_ratio: 0.03

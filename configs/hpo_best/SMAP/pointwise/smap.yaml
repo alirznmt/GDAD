@@ -1,0 +1,6 @@
+dataset:
+  data_root: data/SMAP
+  train_file: SMAP_train.npy
+  test_file: SMAP_test.npy
+  label_file: SMAP_test_label.npy
+  name: SMAP

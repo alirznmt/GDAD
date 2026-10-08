@@ -1,0 +1,51 @@
+data:
+  window_size: 100
+  stride: 50
+  train_ratio: 0.85
+
+model:
+  hidden_dim: 96
+  num_layers: 3
+  kernel_size: 5
+  time_dim: 128
+  node_dim: 32
+  top_k: 10
+  dynamic_graph: true
+  groups: 8
+
+diffusion:
+  timesteps: 100
+  schedule: cosine
+  loss_type: huber
+  scheduler_type: original
+
+train:
+  epochs: 40
+  batch_size: 32
+  lr: 0.0005
+  weight_decay: 0.000001
+  grad_clip: 1.0
+  warmup_frac: 0.02
+  patience: 8
+
+eval:
+  eval_steps: [10, 25, 50]
+  num_samples: 4
+  recon_weight: 1.0
+  eps_weight: 0.025
+  channel_norm: true
+  channel_agg: mean
+  ema_alpha: 0.10
+
+  anomaly_ratio: 0.12
+  pot_q: 0.001
+  pot_level: 0.98
+
+sic:
+  enabled: false
+
+score:
+  denoise_weight: 1.0
+  sic_weight: 0.0
+  graph_weight: 0.0
+  normalization: zscore
